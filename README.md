@@ -1,2 +1,2 @@
 # CSI13140
-CSI3140
+CSI3140 Projects
