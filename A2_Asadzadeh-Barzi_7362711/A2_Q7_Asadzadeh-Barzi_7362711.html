@@ -1,0 +1,96 @@
+<!--TA2: 15/15 Good Job!-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Question7</title>
+		<script>
+			//initializing all the variables used
+			var product1Price = 2.98;
+			var product2Price = 4.50;
+			var product3Price = 9.98;
+			var product4Price = 4.49;
+			var product5Price = 6.68; //**6.87
+			var product1Quantity = 0;
+			var product2Quantity = 0;
+			var product3Quantity = 0;
+			var product4Quantity = 0;
+			var product5Quantity = 0;
+			var product1TotalPrice = 0;
+			var product2TotalPrice = 0;
+			var product3TotalPrice = 0;
+			var product4TotalPrice = 0;
+			var product5TotalPrice = 0;
+
+			while(true){
+				//getting a valid input from the user for the product input.
+				var theProduct = window.prompt("Please enter a product number between 1 to 5 or Press 0 to see the results.");
+				if (theProduct==null)break;
+				//the fist input must satistfy all these conditions
+				if (0 <= parseInt(theProduct) && parseInt(theProduct)<= 5 && theProduct.match(/^[0-9]+$/) != null && theProduct.length == 1){
+
+					if(parseInt(theProduct) == 0){//if the user input is 0 show the results of the table.
+						break;//(nothing is being calculated) 
+					}
+					else{
+						while(true){
+							//getting the quantity input from the user.
+							var theQuantity = window.prompt("Please enter a quantity for product number "+ theProduct+".");
+							if (theQuantity==null)break;
+							//the quantity must be a positive integer
+							if(theQuantity.match(/^[0-9]+$/) != null){
+								switch(theProduct){
+									case "1":
+										product1Quantity = product1Quantity + parseInt(theQuantity);
+										break;
+									case "2":
+										product2Quantity = product2Quantity + parseInt(theQuantity);										
+										break;
+									case "3":
+										product3Quantity = product3Quantity + parseInt(theQuantity);
+										break;
+									case "4":
+										product4Quantity = product4Quantity + parseInt(theQuantity);
+										break;
+									case "5":
+										product5Quantity = product5Quantity + parseInt(theQuantity);
+										break;
+									default :
+										break;
+								}
+								break;	
+							}
+							else{
+								alert("This is an invalid input.");
+							}
+						}
+					}
+				}
+				else{
+					alert("This is an invalid input.");
+				}
+			}
+			//we now have the final quantities that the user wants
+			//multiply those quantities by the price of each product
+			//then assign it to the total price of that product
+			product1TotalPrice = product1Price * product1Quantity;
+			product2TotalPrice = product2Price * product2Quantity;
+			product3TotalPrice = product3Price * product3Quantity;
+			product4TotalPrice = product4Price * product4Quantity;
+			product5TotalPrice = product5Price * product5Quantity;
+			//Building the table
+			document.writeln("<table border = '1'>");
+			document.writeln("<caption>The Mail Order House Table</caption>");
+			document.writeln("<thead><th>Product number</th><th>Price</th><th>Quantity</th><th>Total Price</th></thead>");
+			document.writeln("<tfoot><th colspan='3'>Total</th><th>"+//the total results of addittion of all of those total prices
+				(product1TotalPrice +product2TotalPrice+product3TotalPrice+product4TotalPrice+product5TotalPrice)+"</th></tfoot>");
+			document.writeln("<tbody>");//showing all the results in the table
+			document.writeln("<tr><td>1</td><td>"+product1Price+"</td><td>"+product1Quantity+"</td><td>"+product1TotalPrice+"</td></tr>");
+			document.writeln("<tr><td>2</td><td>"+product2Price+"</td><td>"+product2Quantity+"</td><td>"+product2TotalPrice+"</td></tr>");
+			document.writeln("<tr><td>3</td><td>"+product3Price+"</td><td>"+product3Quantity+"</td><td>"+product3TotalPrice+"</td></tr>");
+			document.writeln("<tr><td>4</td><td>"+product4Price+"</td><td>"+product4Quantity+"</td><td>"+product4TotalPrice+"</td></tr>");
+			document.writeln("<tr><td>5</td><td>"+product5Price+"</td><td>"+product5Quantity+"</td><td>"+product5TotalPrice+"</td></tr>");
+			document.writeln("</tbody></table>");
+		</script>
+	</head><body></body>
+</html>

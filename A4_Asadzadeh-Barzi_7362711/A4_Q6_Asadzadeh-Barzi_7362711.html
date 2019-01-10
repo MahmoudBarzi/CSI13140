@@ -1,0 +1,24 @@
+<!--TA2: 10/10 Good Job!-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Question6</title>
+	</head>
+	<body>
+		<canvas id = "linearGradient" width="600" height= "600">
+		</canvas>
+		<script>
+			var canvas = document.getElementById("linearGradient");
+			var context = canvas.getContext("2d");
+			var gradient = context.createLinearGradient(0,0,0,600);
+			context.beginPath();
+			context.arc(300,300,200,0,Math.PI * 2);
+			gradient.addColorStop(0.25,"yellow");
+			gradient.addColorStop(0.5,"orange");
+			gradient.addColorStop(1,"red");
+			context.fillStyle = gradient;
+			context.fill();
+		</script>
+	</body>
+</html>

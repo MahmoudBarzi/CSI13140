@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--TA2: 14/15-->
+<!--TA2: -1 for not nesting fibre and sugar in a carbohydrates element. Similarly, the totals of each element should be nested in the element-->
+<?xml-stylesheet type = "text/xsl" href = "A4_Q7_Asadzadeh-Barzi_7362711.xsl"?>
+<cookie name = "Grandma White’s cookies">
+    <servingSize>1 package</servingSize>
+    <calories>260 calories</calories>
+    <fatCalories>100 calories</fatCalories>
+    <fat>11 grams</fat>
+    <saturatedFat>2 grams</saturatedFat>
+    <Cholesterol>5 milligrams</Cholesterol>
+    <sodium>210 milligrams</sodium>
+    <carbonhydrates>36 grams</carbonhydrates>
+    <fiber>2 grams</fiber>
+    <sugars>15 grams</sugars>
+    <protein>5 grams</protein>
+</cookie>

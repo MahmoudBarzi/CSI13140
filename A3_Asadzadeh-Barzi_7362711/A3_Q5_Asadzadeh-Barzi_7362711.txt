@@ -1,0 +1,94 @@
+var harePosition = 0; 
+var tortoisePosition = 0; 
+var theRaceTrack = new Array(70);
+
+function start(){
+	var startRace = document.getElementById("startRace");
+	startRace.addEventListener("click",theRace,false);
+	//var theResult = document.getElementById("theResult");
+	//document.getElementById("theResult").innerHTML = startRace.addEventListener("click",theRace,false);
+}
+
+
+
+
+function tortoiseRandomMoveGenerator(){
+	var randomNumberGenerator = Math.floor(1+Math.random()*10);
+	if(randomNumberGenerator >= 1 && randomNumberGenerator <= 5){
+		tortoisePosition+= 3;//Fast plod
+	}
+	if(randomNumberGenerator == 6 || randomNumberGenerator == 7){
+		tortoisePosition-= 6;//Slip
+	}
+	if(randomNumberGenerator >= 8 && randomNumberGenerator <= 10){
+		tortoisePosition++;//Slow plod
+	}
+}
+function hareRandomMoveGenerator(){
+	var randomNumberGenerator = Math.floor(1+Math.random()*10);
+	if(randomNumberGenerator == 1 || randomNumberGenerator == 2){
+		harePosition += 0;//Sleep
+	}
+	if(randomNumberGenerator == 3 || randomNumberGenerator == 4){
+		harePosition += 9;//Big hop
+	}
+	if(randomNumberGenerator == 5 ){
+		harePosition -= 12;//Big slip
+	}
+	if(randomNumberGenerator >= 6 && randomNumberGenerator <=8){
+		harePosition ++;//Small hop
+	}
+	if(randomNumberGenerator == 9 || randomNumberGenerator == 10){
+		harePosition -= 2;//Small slip
+	}                                                             
+}
+function theRace(){
+	document.writeln("<p>ON YOUR MARK, GET SET</p>");
+	document.writeln("<p>BANG!!!</p>");
+	document.writeln("<p>AND THEY’RE OFF!!!</p>");
+
+	do{
+		theRaceTrack = new Array(70);
+		for(var i = 0 ; i <= theRaceTrack.length-1; i++){
+			theRaceTrack[i] = "_";//make a new race track
+		} 
+		//generate random moves
+	 	tortoiseRandomMoveGenerator();
+	 	hareRandomMoveGenerator();
+
+	 	if(harePosition >= theRaceTrack.length-1){
+	 		harePosition = theRaceTrack.length-1;
+	 	}
+	 	if(harePosition <= 0){
+	 		harePosition = 0;
+	 	}
+	 	if(tortoisePosition >= theRaceTrack.length-1){
+	 		tortoisePosition = theRaceTrack.length-1;
+	 	}
+	 	if(tortoisePosition <= 0){
+	 		tortoisePosition = 0;
+	 	}
+	 	theRaceTrack[harePosition] = "H"; //show the hare position on the race track
+	 	theRaceTrack[tortoisePosition] = "T";//show the tortoise position on the race track
+	 	if(harePosition == tortoisePosition){
+	 		theRaceTrack[harePosition] = "OUCH!!!"
+	 	}
+
+	 	document.writeln("<p>"+theRaceTrack+"</p>");//show the race track
+	 	if(harePosition == theRaceTrack.length-1 || tortoisePosition >= theRaceTrack.length-1){
+	 		break;//if some one is at the end of the race track break the loop
+	 	}
+	}while(true);
+
+	if(harePosition == theRaceTrack.length-1 && tortoisePosition == theRaceTrack.length-1 ){
+		document.writeln("<p>IT’S A TIE.</p>");
+	}
+	else if(tortoisePosition == theRaceTrack.length-1){
+		document.writeln("<p>TORTOISE WINS!!! YAY!!!</p>");
+	}
+	else{
+		document.writeln("<p>HARE WINS. YUCK!</p>");	
+	}
+}
+window.addEventListener("load",start,false);
+

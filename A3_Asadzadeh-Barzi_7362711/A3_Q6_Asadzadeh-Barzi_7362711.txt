@@ -1,0 +1,26 @@
+
+function buttonPressed(){
+	var theSentence = document.getElementById("theSentence").value;
+	var theResult = document.getElementById("theResult");
+	var theSplittedSentence = theSentence.split(" ");
+
+	for(var word in theSplittedSentence){
+		if(theSplittedSentence[word].length >= 2){
+			theSplittedSentence[word] = theSplittedSentence[word].toLowerCase();
+			theSplittedSentence[word] = printLatinWord(theSplittedSentence[word]);
+		}
+	}
+	theResult.innerHTML = theSplittedSentence.join(" ");
+
+}
+
+function printLatinWord(theWord){
+	var theSplittedWord = theWord; 
+	theSplittedWord = theSplittedWord+theSplittedWord.charAt(0)+"ay";
+	return theSplittedWord.replace(theSplittedWord.charAt(0),"");
+}
+function start(){
+	var theButton = document.getElementById("theButton");
+	theButton.addEventListener("click", buttonPressed, false);
+}
+window.addEventListener("load",start,false);

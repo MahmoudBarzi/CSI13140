@@ -1,0 +1,14 @@
+div a{
+	border:5px solid orange;
+	background:yellow;
+	color:red;
+	font-size:100px;
+	text-decoration:none;
+}
+div:hover a:hover{
+	border: 10px solid red;
+	background:green;
+	color: blue;
+	font-size:100px;
+	text-decoration:none;
+}

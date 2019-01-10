@@ -1,0 +1,61 @@
+
+var theArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,""];
+var thePuzzle = document.getElementById("thePuzzle");
+var theShuffledArray = randomize(theArray);
+var theCounter = 0;
+var theClickedTile;
+for(var i = 0; i < thePuzzle.rows.length;i++){
+	for(var j = 0; j < thePuzzle.rows[i].cells.length;j++){
+		thePuzzle.rows[i].cells[j].innerHTML = theShuffledArray[theCounter];
+		theCounter++;
+		thePuzzle.rows[i].cells[j].onclick = 
+		function(){
+			theClickedTile = this.innerHTML;
+			var swap1 = getIndex(theShuffledArray,theClickedTile);
+			if(	theShuffledArray[swap1+1] == "" || 
+				theShuffledArray[swap1-1] == "" ||
+				theShuffledArray[swap1+4] == "" ||
+				theShuffledArray[swap1-4] == ""	){
+				swap2 = getIndex(theShuffledArray,"")
+				swap(theShuffledArray,swap1,swap2);
+				letTheGameBegin();
+			}
+			else{
+				alert("you can't swap!")
+			}
+		}
+	 }
+}
+function letTheGameBegin(){
+	var theCounter = 0;
+	for(var i = 0; i < thePuzzle.rows.length;i++){
+		for(var j = 0; j < thePuzzle.rows[i].cells.length;j++){
+			thePuzzle.rows[i].cells[j].innerHTML = theShuffledArray[theCounter];
+			theCounter++;
+		}
+	}
+}
+function getIndex(array,element){
+	var index;
+	for(var i = 0; i < array.length; i++){
+		if(element == array[i]){
+			index = i;
+		}
+	}
+	return index;
+}
+function swap(array,location1, location2){
+	var temp = array[location1];
+	array[location1]= array[location2]; 
+	array[location2]= temp;
+	return array;
+}
+function randomize(array) {
+  var m = array.length,i;
+  while (m) {
+    i = Math.floor(Math.random() * m--);
+    swap(array,m,i);
+  }
+  return array;
+}
+letTheGameBegin();

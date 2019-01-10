@@ -1,0 +1,36 @@
+<!--TA2: 10/10 Good Job!-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Question6</title>
+		<script>
+			function reverse(number){
+				var a = number % 10000; 
+				var b = a % 1000;
+				var c = b % 100;
+				var d = c % 10; 
+
+				var theReverse = (d * 10000)+((c-d)*100)+(b-c)+Math.floor((a-b)/100)+Math.floor(a/10000)+Math.floor(number/10000);
+				return theReverse;
+			}
+			while(true){
+				theInput = window.prompt("Please enter a five digit integer that doesn't begin with zero.");
+				if(theInput.length == 5 && theInput.match(/^[0-9]+$/) != null && theInput.charAt(0) != 0){
+					theInteger = parseInt(theInput);
+					theResult = reverse(theInteger);
+					if(theResult == theInteger){
+						document.writeln("<p>"+theInput+" is a palindrome. </p>");
+					}
+					else{
+						document.writeln("<p>"+theInput+" is not a palindrome. </p>");
+					}
+					break;
+				}
+				else{
+					alert("This is an invalid input.");
+				}	
+			}	
+		</script>
+	</head><body></body>
+</html>

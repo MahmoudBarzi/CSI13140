@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Question3</title>
+	<script>
+		var theNumber = Math.floor(1+Math.random()*1000);
+		alert(theNumber); 
+		var theGuess = window.prompt("Guess the number.");
+		var theCounter = 0;
+		while (true){
+			//(theCounter);
+
+			if(theGuess.match(/^[0-9]+$/) != null && 0 <= parseInt(theGuess) && 1000 >= parseInt(theGuess)){//just checking if the input is valid
+				theCounter++;
+				if(parseInt(theGuess) == theNumber){
+					if(theCounter < 10){
+						alert("Either you know the secret or you got lucky!");
+					}
+					if(theCounter == 10){
+						alert("Ahah! You know the secret!");
+					}
+					if(theCounter > 10){
+						alert("You should be able to do better!");
+					}
+					break; 
+				}
+				if(parseInt(theGuess) > theNumber){
+					theGuess = window.prompt("Too high. Try again.");
+				}
+				if (parseInt(theGuess) < theNumber){
+					theGuess = window.prompt("Too low. Try again.");
+				}
+			}
+			else{
+				alert("Wrong input! You should enter a number between 1 and 1000.");
+				theGuess = window.prompt("Guess the number.");
+			}
+		}	
+	</script>
+</head><body></body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Question4</title>
+		<style type="text/css">
+			div{ 
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				position: relative;
+				-webkit-animation: movingBlock linear 5s 1s infinite normal;
+				
+				<!--TA1:  -moz-animation and animation: movingelement are missed -->
+			}
+			@-webkit-keyframes movingBlock{
+				0% {opacity: 1; left:0px; top: 0px;}
+				25% {opacity: 1; left:0px; top: 500px;}
+				50% {opacity: 1; left:500px; top: 500px;}
+				75% {opacity: 1; left:500px; top: 0px;}
+				100% {opacity: 1; left:0px; top: 0px;}
+			}
+			@-moz-keyframes movingBlock{
+				0% {opacity: 1; left:0px; top: 0px;}
+				25% {opacity: 1; left:0px; top: 500px;}
+				50% {opacity: 1; left:500px; top: 500px;}
+				75% {opacity: 1; left:500px; top: 0px;}
+				100% {opacity: 1; left:0px; top: 0px;}
+			}
+			@keyframes movingBlock{
+				0% {opacity: 1; left:0px; top: 0px;}
+				25% {opacity: 1; left:0px; top: 500px;}
+				50% {opacity: 1; left:500px; top: 500px;}
+				75% {opacity: 1; left:500px; top: 0px;}
+				100% {opacity: 1; left:0px; top: 0px;}
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

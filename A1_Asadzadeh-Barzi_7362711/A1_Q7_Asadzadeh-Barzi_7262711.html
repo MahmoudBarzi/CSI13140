@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<!--TA2: Good job!-->
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Question 7</title>
+	</head>
+	<body>
+		<form >
+			<p>
+				<label>First Name:
+					<input 	type="text" 
+							id = "firstName"
+							placeholder="First name"
+							required/>
+				</label>
+			</p>
+			<p>
+				<label>Last Name:
+					<input 	type = "text" 
+							id = "lastName"
+							placeholder = "Last name"/>
+				</label>
+			</p>
+			<p>
+				<label>E-mail Address:
+					<input 	type = "email" 
+							id = "email"
+							placeholder = "name@domain.com"
+							required/>
+				</label>
+			</p>
+			<details>
+				<p>
+					<label for = "txtList"> Which year are you in university?
+						<input 	type="text" 
+								id ="txtList"
+								placeholder="Select one of the options" 
+								list= "Year" />
+							<datalist id="Year">
+								<option value="Not yet in university">
+								<option value="Freshman">
+								<option value="Sophomore">
+								<option value="Junior">
+								<option value="Senior">
+								<option value="Graduate">
+							</datalist>
+					</label>
+				</p>
+			</details>
+			<p>
+				<input type="submit" value ="Submit">
+				<input type="reset"  value = "Clear">
+			</p>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Question2</title>
+	</head>
+	<script>
+		var theNumber = Math.floor(1+Math.random()*1000); 
+		alert(theNumber);
+		var theGuess = window.prompt("Guess the number.");
+		while (true){
+			if(parseInt(theGuess) > theNumber){
+				theGuess = window.prompt("Too high. Try again."); 
+			}
+			if (parseInt(theGuess) < theNumber){
+				theGuess = window.prompt("Too low. Try again.");
+			}
+			if(parseInt(theGuess) == theNumber){
+				alert("Congragulation. You guessed the number!");
+				break;
+			}
+			if(theGuess == null){
+				break;
+			}
+		}	
+	</script><body></body>
+</html>
